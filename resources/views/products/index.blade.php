@@ -1,7 +1,7 @@
 @extends('products.layout')
 
 @section('content')
-    <div class="row">
+    <div class="row mt-md-5">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
                 <h2>Laravel 8 CRUD Example from scratch - ItSolutionStuff.com</h2>
@@ -24,6 +24,7 @@
             <th>Name</th>
             <th>Details</th>
             <th>Price</th>
+            <th>kategorie</th>
             <th width="280px">Action</th>
         </tr>
         @foreach ($products as $product)
@@ -31,8 +32,14 @@
                 <td>{{ ++$i }}</td>
                 <td>{{ $product->name }}</td>
                 <td>{{ $product->detail }}</td>
-                <td>{{ $product->price }}$</td>
-                <td>{{ $product->category }}$</td>
+                <td>{{ $product->price}}$</td>
+                <td>
+                    @forelse($product->category as $category )
+                        {{ $category['category_name']}} ,
+                    @empty
+                        brak kategori
+                    @endforelse
+                </td>
                 <td>
                     <form action="{{ route('products.destroy',$product->id) }}" method="POST">
 

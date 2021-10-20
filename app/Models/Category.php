@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use App\Models\Product;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -10,14 +9,15 @@ class Category extends Model
 {
     use HasFactory;
 
+    protected $table = 'category';
+
     protected $fillable = [
-        'name',
-        'detail',
-        'price',
+        'category_name',
     ];
 
+    //wiele kategori nalezy do produktu
     public function products()
     {
-        return $this->belongsTo('App\Product', 'products');
+        return $this->belongsTo(Product::class);
     }
 }

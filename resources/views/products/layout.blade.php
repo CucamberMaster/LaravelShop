@@ -2,11 +2,12 @@
 <html>
 <head>
     <title>Laravel 8 CRUD Application - ItSolutionStuff.com</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/css/bootstrap.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/css/bootstrap.css"
+          rel="stylesheet">
 </head>
 <body>
 
-<div class="container">
+<div class="container mt-5">
     @yield('content')
 </div>
 

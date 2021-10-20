@@ -13,11 +13,16 @@ class CategoryProductsTable extends Migration
      */
     public function up()
     {
-        Schema::create('category', function (Blueprint $table) {
-            $table->string('category');
-            $table->id();
-            $table->timestamps();
-        });
+        Schema::create(
+            'category',
+            function (Blueprint $table) {
+                $table->id();
+                $table->string('category_name');
+                $table->unsignedInteger('product_id');
+                $table->timestamps();
+                $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
+            }
+        );
     }
 
     /**
