@@ -9,15 +9,15 @@ class Category extends Model
 {
     use HasFactory;
 
-    protected $table = 'category';
+    protected $table = 'categories';
 
     protected $fillable = [
-        'category_name',
+        'name_category',
     ];
 
     //wiele kategori nalezy do produktu
     public function products()
     {
-        return $this->belongsTo(Product::class);
+        return $this->belongsToMany(Product::class);
     }
 }

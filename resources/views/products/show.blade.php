@@ -34,11 +34,9 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Category:</strong>
-                @forelse($product->category as $category )
-                    ,{{ $category['category_name']}}
-                @empty
-                    Brak Kategori
-                @endforelse
+                @foreach($product->categories as $category)
+                    {{ $category->name_category }},
+                @endforeach
             </div>
         </div>
     </div>

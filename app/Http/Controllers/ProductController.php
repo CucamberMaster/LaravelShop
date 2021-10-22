@@ -14,10 +14,10 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::latest()->paginate(5);
+        $products = Product::latest()->paginate(15);
 
         return view('products.index', compact('products'))
-            ->with('i', (request()->input('page', 1) - 1) * 5);
+            ->with('i', (request()->input('page', 1) - 1) * 7);
     }
 
     /**
@@ -27,6 +27,7 @@ class ProductController extends Controller
      */
     public function create()
     {
+
         return view('products.create');
     }
 
@@ -38,6 +39,7 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
+
         $request->validate(
             [
                 'name' => 'required',
@@ -46,8 +48,9 @@ class ProductController extends Controller
             ]
         );
 
-        Product::create($request->all());
-
+        $product = Product::create($request->all());
+        $product->categories()->sync($request->get('categories'));
+        // $product->categories()->attach($categories);
         return redirect()->route('products.index')
             ->with('success', 'Product created successfully.');
     }
@@ -83,6 +86,7 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
+
         $request->validate(
             [
                 'name' => 'required',
@@ -92,6 +96,8 @@ class ProductController extends Controller
         );
 
         $product->update($request->all());
+        $product->categories()->sync($request->get('categories'));
+//        $product->categories()->attach($categories);
 
         return redirect()->route('products.index')
             ->with('success', 'Product updated successfully');

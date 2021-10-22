@@ -6,8 +6,11 @@
             <div class="pull-left">
                 <h2>Laravel 8 CRUD Example from scratch - ItSolutionStuff.com</h2>
             </div>
-            <div class="pull-right">
+            <div class="pull-right my-4">
                 <a class="btn btn-success" href="{{ route('products.create') }}"> Create New Product</a>
+            </div>
+            <div class="pull-right my-4">
+                <a class="btn btn-success" href="{{ route('categories.create') }}"> Create New Category</a>
             </div>
         </div>
     </div>
@@ -34,12 +37,13 @@
                 <td>{{ $product->detail }}</td>
                 <td>{{ $product->price}}$</td>
                 <td>
-                    @forelse($product->category as $category )
-                        {{ $category['category_name']}} ,
+                    @forelse($product->categories as $category)
+                        {{ $category->name_category }}
                     @empty
-                        brak kategori
+                        brak kategorii
                     @endforelse
                 </td>
+
                 <td>
                     <form action="{{ route('products.destroy',$product->id) }}" method="POST">
 

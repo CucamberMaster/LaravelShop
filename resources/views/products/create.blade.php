@@ -42,7 +42,14 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Category:</strong>
-                    <input type="text" name="category" class="form-control" placeholder="Category">
+                    <select name="categories[]" id="categories" class="selectpicker mt-2" multiple
+                            data-live-search="true" style="width: 20%">
+                        @foreach (\App\Models\Category::all() as $category)
+                            <option value="{{$category->id}}"
+                            >
+                                {{ $category->name_category }}</option>
+                        @endforeach
+                    </select>
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
