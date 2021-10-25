@@ -35,11 +35,13 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Category That Exists:</strong>
-                    <p class="text-danger font-italic">
-                        @foreach (\App\Models\Category::all() as $category)
+                    @forelse (\App\Models\Category::all() as $category)
+                        <p class="text-danger font-italic" style="font-weight: 700">
                             {{ $category->name_category }}
-                        @endforeach
-                    </p>
+                        </p>
+                    @empty
+                        <p>Nie ma żadnych kategori</p>
+                    @endforelse
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12 text-center mt-2 w-80">

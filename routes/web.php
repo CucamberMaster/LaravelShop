@@ -24,3 +24,4 @@ Route::get(
         return view('welcome');
     }
 );
+

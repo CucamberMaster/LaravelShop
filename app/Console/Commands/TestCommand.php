@@ -2,25 +2,24 @@
 
 namespace App\Console\Commands;
 
-use App\Models\Product;
 use Illuminate\Console\Command;
 use Symfony\Component\Console\Output\ConsoleOutput;
 
-class CreateProducts extends Command
+class TestCommand extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'create:products ';
+    protected $signature = 'test:command ';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Create 50 test products';
+    protected $description = 'test command';
 
     /**
      * Create a new command instance.
@@ -43,7 +42,7 @@ class CreateProducts extends Command
     public function handle()
     {
 
-        $this->alert('All content will be linked with following user');
+        $this->alert('ale jestes super ');
         return Command::SUCCESS;
     }
 }
