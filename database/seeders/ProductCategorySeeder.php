@@ -21,8 +21,8 @@ class ProductCategorySeeder extends Seeder
         Category::all()->each(
             function ($category) {
                 $category->products()->sync(
-                    Product::all()->random(3)
-                );
+                    Product::all()->random(rand(0, 10))
+            );
             }
         );
     }

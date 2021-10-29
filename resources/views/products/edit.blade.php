@@ -38,7 +38,7 @@
                 <div class="form-group">
                     <strong>Price:</strong>
                     <input type="number" name="price" value="{{ $product->price }}" class="form-control"
-                           placeholder="Price">
+                           placeholder="Price $">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
@@ -46,10 +46,10 @@
                     <select name="categories[]" id="categories" class="selectpicker mt-2" multiple
                             data-live-search="true" style="width: 20%">
                         @foreach (\App\Models\Category::all() as $category)
-                                <option value="{{$category->id}}"
-                                        {{ $product->categories->contains($category) ? 'selected' : ''}}>
-                                    {{ $category->name_category }}
-                                </option>
+                            <option value="{{$category->id}}"
+                                    {{ $product->categories->contains($category) ? 'selected' : ''}}>
+                                {{ $category->name_category }}
+                            </option>
                         @endforeach
                     </select>
                 </div>

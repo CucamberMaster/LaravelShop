@@ -3,9 +3,11 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\StatisticsController;
 
 Route::resource('products', ProductController::class);
 Route::resource('categories', \App\Http\Controllers\CategoryController::class);
+Route::resource('statistics', \App\Http\Controllers\StatisticsController::class);
 
 /*
 |--------------------------------------------------------------------------

@@ -9,8 +9,11 @@
             <div class="pull-right mt-4">
                 <a class="btn btn-success" href="{{ route('products.create') }}"> Create New Product</a>
             </div>
-            <div class="pull-right mb-3 mt-2">
+            <div class="pull-right mb-2 mt-2">
                 <a class="btn btn-success" href="{{ route('categories.create') }}"> Create New Category</a>
+            </div>
+            <div class="pull-right mb-3">
+                <a class="btn btn-success" href="{{route('statistics.index')}}"> Show Stats </a>
             </div>
         </div>
     </div>
@@ -60,7 +63,6 @@
             </tr>
         @endforeach
     </table>
-
     {!! $products->links() !!}
 
 @endsection
